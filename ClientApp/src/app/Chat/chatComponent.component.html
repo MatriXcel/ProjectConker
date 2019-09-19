@@ -1,0 +1,28 @@
+ <div class="outer-chat-container">
+    <div class="chat-container">
+
+        <ng-container *ngIf="messages.length > 0">
+            <div class="message-box"  *ngFor="let message of messages">
+              <img class="avatar" [src]='message.iconLink'>
+              
+
+              <div class="content">
+                <div class="headline">
+                    <p class="author">{{ message.author }}</p>
+                    <div class="datetime">{{ message.timestamp }}</div>
+                </div>
+                
+                
+                <p class="message">{{ message.message }}</p>
+              </div>
+            </div>
+
+         </ng-container>
+    </div>
+    <form class="send-message-form" (ngSubmit)="sendMessage()" #chatForm="ngForm">
+        <div>
+            <input type="text" name="message" [(ngModel)]="message" placeholder="Your message" required>
+            <!-- <button type="submit">Send</button> -->
+        </div>
+    </form>
+</div>

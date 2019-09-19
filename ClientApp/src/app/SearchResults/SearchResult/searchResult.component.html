@@ -1,0 +1,22 @@
+<div class = "search-result">
+    
+
+    <div class = 'result-top-section'>
+        <div class = 'author-profile'>
+             <img width = '70' height = '70' class = 'profile-icon' [src]= 'iconLink'/>
+             <!-- <p>{{ author }}</p> -->
+        </div>
+        <div class = 'content'>
+            <h2 class="result-title">{{ title }}</h2>
+            <p>{{ summary }}</p>
+        </div>
+    </div>
+
+    <div class = 'result-tag-row'>
+            <tag *ngFor = "let tag of tags;" textColor='darkgrey' 
+                                            fontWeight='bold' 
+                                            fontSize='13px' 
+                                            floatDir = 'right' 
+                                            [tagName] = 'tag'></tag>
+    </div>
+</div>

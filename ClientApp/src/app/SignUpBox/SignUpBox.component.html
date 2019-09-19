@@ -1,0 +1,31 @@
+<div class="register-container">
+    <h2>Register</h2>
+
+    <form [formGroup]="registerForm">
+        <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email-input" formControlName="email" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username-input" formControlName="username" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="repeatPassword">Repeat Password</label>
+            <input type="password" formControlName="repeatPassword" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <button class="sign-in-button btn btn-primary">
+                <h5>REGISTER</h5>
+            </button>
+        </div>
+    </form>
+</div>

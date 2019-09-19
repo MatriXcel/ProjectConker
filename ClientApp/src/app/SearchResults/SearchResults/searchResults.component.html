@@ -1,0 +1,16 @@
+
+<main id="search-results">
+        <h2 class="section-header" id="results-header">Results</h2>
+        <div class="sort-by">Sort by</div>
+
+        <ng-container *ngIf = "searchResults != undefined">
+            <searchresult *ngFor = "let result of searchResults;" 
+                [title] = 'result.title'
+                [authorName] = 'result.authorName'
+                [summary] = 'result.summary'
+                [tags] = "result.tags"
+            ></searchresult>
+        </ng-container>
+        
+        <p *ngIf = "searchResults == undefined">loading...</p>
+</main>

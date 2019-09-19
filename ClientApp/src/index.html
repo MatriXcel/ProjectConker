@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ProjectConker</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root>Loading...</app-root>
+</body>
+</html>
+<!doctype html>
+<html lang="en">
+<head>
+
+    <base href="/">
+    
+    <meta charset="utf-8">
+    <title>AngularClientApp</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu&display=swap" rel="stylesheet">
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ 
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            function slideSideBar()
+            {
+                $('.toggle').toggleClass('active');
+                $('.side-nav').toggleClass('inactive');
+                // $('.right-container').toggleClass('extended');
+            }
+
+            $('.toggle').click(function () {
+                slideSideBar();
+            })
+            $('.side-nav-content a').click(function() {
+                slideSideBar();
+            })
+
+            $('.search-button').click(function(){
+                $('.site-header').toggleClass('extended');
+                $('.search').toggleClass('extended');
+            })
+        })
+    </script>
+</head>
+<body>
+    <app-root></app-root> 
+</body>
+</html>

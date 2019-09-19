@@ -1,0 +1,130 @@
+#login-page
+{
+    position: relative;
+    height: 100%;
+    /* overflow: hidden; */
+    font-size: 1.25rem;
+}
+
+#login-page a
+{
+    text-decoration: none;
+    color: white;
+}
+
+#login-signup-box
+{
+    float: right;
+    padding-right: 24px;
+    padding-top: 20px;
+}
+
+#login-box, #sign-up-box
+{
+    display: inline-block;
+    color: white;
+    /* background: #10363b; */
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+#login-box
+{
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+
+    color: #c8c6c6;
+    background: #456063;
+}
+
+#sign-up-box
+{
+    /* background: #384E52; */
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.left-container .conker-logo
+{
+    margin: 0 auto;
+    display: block;
+    margin-top: 50px;
+}
+
+#planet-img
+{
+    margin: 0 auto;
+    display: block;
+    margin-top: 190px;
+}
+
+#logo-subtitle
+{
+    color: white;
+    text-align: center;
+    margin-top: 40px;
+   
+}
+
+
+.left-container
+{
+    width: 50%;
+    float: left;
+    height: 100%;
+    background: #364c4e;
+
+    /* max-width: 600px; */
+}
+
+.right-container
+{
+    
+    color:#384E52;
+    background: white;
+    float: right;
+    width: 50%;
+    height: 100%;
+    font-family: 'Glacial', sans-serif;
+    
+}
+
+
+#signin-container
+{
+    width: 80%;
+    max-width: 480px;
+    margin: auto;
+    margin-top: 170px;
+}
+
+@media only screen and (max-width: 1000px)
+{
+    #signin-container
+    {
+        margin-top: 105px;
+    }
+
+    .conker-logo
+    {
+        margin-top: 80px;
+    }
+    .right-container
+    {
+        box-shadow: 9px 9px 0px #424141;
+        position: absolute;
+        width: 85%;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 80%;
+        /* margin: 0 auto; */
+    }
+
+    .left-container
+    {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+    }
+}

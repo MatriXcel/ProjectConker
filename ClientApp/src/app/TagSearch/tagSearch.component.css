@@ -1,0 +1,9 @@
+:host
+{
+    height: 100%;
+}
+
+.tag-search
+{
+    height: inherit;
+}

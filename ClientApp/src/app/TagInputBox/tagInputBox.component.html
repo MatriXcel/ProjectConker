@@ -1,0 +1,8 @@
+<span class = "taglist">
+    <tag *ngFor = "let tag of tagList;" [tagName] = 'tag'></tag>
+</span>
+
+<span class = "searchbox"><input [formControl]="tagInput" class = "" placeholder="{{inputPlaceholder}}" name="" 
+    (keyup.Space)="onSpacePressed($event)"
+    (keyup.Backspace)="onBackPressed($event)">
+</span>

@@ -1,0 +1,87 @@
+.side-nav
+{
+    
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    font-size: calc(8px + 80%);
+    background: rgba(16, 54, 59, 1);
+    position: fixed;
+    width: 230px;
+    bottom: 0;
+    top: 0;
+    font-family: 'Ubuntu', sans-serif;
+    transition: transform 0.25s;
+    transition-timing-function: cubic-bezier(0,.01,.12,.89, .955);
+    z-index: 2;
+    
+}
+
+.side-nav.inactive
+{
+    transform:translate(-100%);
+    float: none;
+    position: absolute;
+}
+
+.side-nav-content
+{
+    margin-top: 107px;
+}
+
+.side-nav-content > *
+{
+    /* margin-bottom: 10%; */
+}
+
+nav
+{
+    margin-top: 72px;
+}
+nav > a
+{
+    margin-bottom: 20px;
+}
+
+.side-nav-content .logo
+{
+    font-family: 'Open Sans', sans-serif;
+
+    /* margin-top: 30%; */
+}
+
+
+nav .side-nav-my-section
+{
+    margin-bottom: 61px;
+    /* background-color: salmon; */
+}
+
+nav .side-nav-my-section a 
+{
+   margin:4% 0;
+}
+
+nav a 
+{
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover
+{
+    color: white;
+}
+
+@media only screen and (max-width: 585px)
+{
+    .side-nav
+    {
+        top:0%;
+        bottom:0%;
+        z-index: 10;
+        position: fixed;
+    
+    }
+}

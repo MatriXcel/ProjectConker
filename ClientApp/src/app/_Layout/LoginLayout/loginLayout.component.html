@@ -1,0 +1,25 @@
+<div id="login-page">
+    <div class="left-container"> 
+        <img class="conker-logo" width=172 height=92 src="../../../assets/img/conker_logo.png"/>
+ 
+         <p id="logo-subtitle">Learn. Share.<br>Interact.</p>
+ 
+         <img id="planet-img" width=211.5 height=226.995 src="../../assets/img/planet.png"/>  
+ </div>
+ 
+ <div class="right-container">
+     <div id="login-signup-box">
+         <div id="login-box"  [style.background-color]="(registerColor == lightGreen) ? darkGreen : lightGreen">
+             <a routerLink='/signin' (click)="onTabClicked(false)">Sign In</a>
+         </div>
+         <div id="sign-up-box" [style.background-color]="registerColor">
+            <a routerLink='/signup' (click)="onTabClicked(true)">Sign Up</a>
+         </div>
+     </div>
+     
+     <div id = "signin-container">
+        <router-outlet></router-outlet>
+     </div>
+     
+ </div>
+</div>

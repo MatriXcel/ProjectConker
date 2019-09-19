@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+}
+
+
+
+
+.outer-chat-container {
+    height:100%;
+    /* border: solid 1px #ccc; */
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    max-width: initial;
+}
+
+.chat-container {
+    height: 100%;
+    overflow: auto;
+    margin-left: 19px;
+}
+
+.message-box {
+    border-bottom: solid 1px #afcab5;
+    padding: 15px 0px;
+    padding-bottom: 0px;
+    overflow: hidden;
+
+}
+
+.message 
+{
+    color: #013201;
+    overflow-wrap: break-word;
+}
+.avatar {
+    float: left;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.headline
+{
+    overflow: hidden;
+}
+
+.headline .author
+{
+    font-weight: bold;
+    color: white;
+    background: rgba(16, 54, 59, 0.945);
+    float: left;
+    margin-bottom: 7px;
+    border-radius: 5px;
+    padding: 4px 6px;
+}
+
+.headline .datetime {
+    float: right;
+    color: #999;
+}
+
+.send-message-form {
+    text-align: center;
+}
+
+.send-message-form input {
+    width: 99%;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+}
+button{
+    display: none;
+}
+
+.send-message-form {
+    border-top: 1px solid  #afcab5;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.send-message-form div {
+    border: 1px solid #afcab5;
+    border-radius: 5px;
+}
+
+.content
+{
+    /* background: salmon; */
+    margin-left: 56px;
+    overflow: hidden;
+    padding: 14px;
+    padding-top: 2px;
+}
+
+
+
+@media only screen and (max-width: 585px)
+{
+    .send-message-form
+    {
+        position: fixed;
+    }
+}

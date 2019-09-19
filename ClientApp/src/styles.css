@@ -1,0 +1,105 @@
+
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+@font-face
+{
+    font-family: Glacial;
+    src: url('./assets/fonts/GlacialIndifference-Regular.otf') format("opentype");
+}
+
+@font-face
+{
+    font-family: Glacial;
+    font-weight: bold;
+    src: url('./assets/fonts/GlacialIndifference-Bold.otf') format("opentype");
+}
+
+html, body
+{
+    height: 100%;
+}
+
+.btn
+{
+    font-size: calc(3px + 62%);
+}
+
+.sort-by
+{
+    border-bottom: 1px solid #949494;
+    padding-bottom: 8px;
+}
+
+.toggle.active
+{
+    display: block;
+    margin-top: 11px;
+    margin-left: 11px;
+}
+
+.toggle span
+{
+    position: relative;
+    width: 30px;
+    height: 2px;
+    background: white;
+    display: block;
+    margin-bottom: 8px;
+    transition: .2s;
+}
+
+.toggle span:nth-child(1)
+{
+    transform-origin: left;   
+}
+
+.toggle span:nth-child(2)
+{
+    transform-origin: center;
+}
+
+.toggle span:nth-child(3)
+{
+    transform-origin: left;
+   
+}
+.toggle.active span
+{
+   background: white;
+}
+
+.toggle.active span:nth-child(1)
+{
+    transform: rotate(45deg);
+    
+}
+
+.toggle.active span:nth-child(2)
+{
+    transform:rotate(315deg);
+    right: 3px;
+}
+.toggle.active span:nth-child(3)
+{
+    transform:scaleX(0);
+}
+
+.section-header
+{
+    margin-bottom: 40px;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 585px)
+{
+    .toggle
+    {
+        z-index: 11;
+        
+    }
+}/* You can add global styles to this file, and also import other style files */
