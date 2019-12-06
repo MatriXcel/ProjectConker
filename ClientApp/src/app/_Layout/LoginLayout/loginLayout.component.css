@@ -3,7 +3,8 @@
     position: relative;
     height: 100%;
     /* overflow: hidden; */
-    font-size: 1.25rem;
+    font-size: 1.2rem;
+    overflow: hidden;
 }
 
 #login-page a
@@ -44,11 +45,14 @@
     border-bottom-right-radius: 5px;
 }
 
-.left-container .conker-logo
+.conker-logo
 {
     margin: 0 auto;
     display: block;
-    margin-top: 50px;
+    margin-top: 10%;
+    width: 172px;
+    height: 92px;
+
 }
 
 #planet-img
@@ -62,7 +66,7 @@
 {
     color: white;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 10%;
    
 }
 
@@ -100,6 +104,11 @@
 
 @media only screen and (max-width: 1000px)
 {
+    #login-page
+    {
+        font-size: 85%;
+    }
+
     #signin-container
     {
         margin-top: 105px;
@@ -107,7 +116,9 @@
 
     .conker-logo
     {
-        margin-top: 80px;
+        width: 101px;
+        height: 54px;
+        /* margin-top: 80px; */
     }
     .right-container
     {

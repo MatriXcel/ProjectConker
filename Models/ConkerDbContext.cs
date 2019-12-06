@@ -1,10 +1,11 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace ProjectConker.Models
-{
-    public partial class ConkerDbContext : DbContext
+{ 
+    public partial class ConkerDbContext : IdentityDbContext
     {
         public ConkerDbContext()
         {
@@ -30,6 +31,8 @@ namespace ProjectConker.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+            
             modelBuilder.HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
             modelBuilder.Entity<Roadmap>(entity =>

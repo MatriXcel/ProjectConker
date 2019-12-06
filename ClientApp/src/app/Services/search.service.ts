@@ -19,7 +19,7 @@ const httpOptions = {
   
 export class SearchService {
 
-    searchUrl: string = "https://localhost:5001/api/search?q=";
+    searchUrl: string = "/api/search?q=";
 
     constructor(private http: HttpClient) { }
 

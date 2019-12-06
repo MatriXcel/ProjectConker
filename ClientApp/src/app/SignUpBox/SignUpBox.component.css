@@ -3,21 +3,24 @@
     font-weight: bold;
     margin: auto;
     margin-bottom: 15%;
+    font-size: 1.4em;
     
 }
+
+
 
 .sign-in-button
 {
     background: #384E52;
     width: 100%;
-    margin-top: 10%;
+    margin-top: 1%;
     
 }
 
 .sign-in-button h5
 {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 0.8em;
     margin-bottom: 0px;
 }
 
@@ -26,5 +29,26 @@
     border: none;
     border-bottom: 1px solid #456063;
     border-radius: 0;
-    font-size: 1.1rem;
+    font-size: 0.8em;
+    padding-left: 0px;
+    margin-bottom: 30px;
 }
+
+@media only screen and (max-width: 1000px)
+{
+    .form-fields {
+        -ms-overflow-style: none;  
+        scrollbar-width: none;  
+    }
+
+    .form-fields::-webkit-scrollbar { 
+        display: none; 
+    }    
+    .form-fields
+    {
+        overflow: auto;
+        height: 15
+        150px;
+    }
+}
+

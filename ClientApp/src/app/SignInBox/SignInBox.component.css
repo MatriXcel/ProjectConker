@@ -9,6 +9,7 @@
     font-weight: bold;
     margin: auto;
     margin-bottom: 15%;
+    font-size: 1.4em;
     
 }
 
@@ -23,16 +24,18 @@
 .sign-in-button h5
 {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 0.8em;
     margin-bottom: 0px;
 }
 
 .form-group input
 {
-    font-size: 1.1rem;
     border: none;
     border-bottom: 1px solid #456063;
     border-radius: 0;
+    font-size: 0.8em;
+    padding-left: 0px;
+    margin-bottom: 38px;
 }
 
 

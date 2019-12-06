@@ -15,11 +15,11 @@ namespace ProjectConker.Controllers
     [Route("api/submitForm")]
     [ApiController]
 
-    public class FormController : ControllerBase
+    public class RoadmapFormController : ControllerBase
     {
         readonly RoadmapService _roadmapService;
         
-        public FormController(RoadmapService roadmapService)
+        public RoadmapFormController(RoadmapService roadmapService)
         {
             _roadmapService = roadmapService;
         }

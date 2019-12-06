@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { TagInputBoxComponent } from '../TagInputBox/tagInputBox.component';
 
+
 @Component({
   selector: 'tag-search',
   templateUrl: './tagSearch.component.html',
@@ -15,7 +16,7 @@ import { TagInputBoxComponent } from '../TagInputBox/tagInputBox.component';
 
 export class TagSearchComponent {
 
-     tagInputEditor : FormControl = new FormControl('game-dev bezier-curves');
+     tagInputEditor : FormControl = new FormControl('basketball');
 
      constructor(private router: Router) { }
     

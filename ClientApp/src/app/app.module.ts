@@ -25,6 +25,11 @@ import { SearchbarComponent } from './Searchbar/searchbar.component';
 import { TagComponent } from './Tag/tag.component';
 import { TagInputBoxComponent } from './TagInputBox/tagInputBox.component';
 import { TagSearchComponent } from './TagSearch/tagSearch.component';
+import { AuthGuard } from './auth.guard';
+import { UserService } from './Services/user.service';
+import { ChatroomsComponent } from './Chatrooms/chatrooms.component';
+import { ChatroomsLayoutComponent } from './_Layout/ChatroomsLayout/chatroomsLayout.component';
+import { CreateChatComponent } from './CreateChat/createChat.component';
 
 
 
@@ -33,21 +38,30 @@ import { TagSearchComponent } from './TagSearch/tagSearch.component';
     ChatComponent, SiteHeaderComponent, SiteLayoutComponent, SiteSideNavComponent, SignUpComponent,
     AppComponent, FeedComponent, SearchbarComponent, SignInComponent,
     TagComponent, TagInputBoxComponent, TagSearchComponent,
-    SearchResultComponent, SearchResultsComponent, LoginLayoutComponent
+    SearchResultComponent, SearchResultsComponent, LoginLayoutComponent, ChatroomsComponent,
+    ChatroomsLayoutComponent, CreateChatComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+
     RouterModule.forRoot([
       {
         path: '',
-        component: SiteLayoutComponent,
+        component: SiteLayoutComponent, canActivate: [AuthGuard],
         children: [
           { path: 'feed', component: FeedComponent },
           { path: 'search', component: SearchResultsComponent },
-    
+          { 
+            path: 'chatrooms', 
+            component: ChatroomsLayoutComponent,
+            children: [
+              { path: '', component: ChatroomsComponent },
+              { path: 'create', component: CreateChatComponent }
+            ]
+          },
           { path: '', redirectTo: '/feed', pathMatch: 'full' }
         ]
       },
@@ -65,6 +79,7 @@ import { TagSearchComponent } from './TagSearch/tagSearch.component';
     ])
   ],
   providers: [
+    UserService,
     
   ],
   bootstrap: [AppComponent]

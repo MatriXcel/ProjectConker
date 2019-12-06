@@ -1,4 +1,7 @@
-
+:root
+{
+    --side-nav-width: 230px;
+}
 *
 {
     padding: 0;
@@ -18,17 +21,16 @@
     src: url('./assets/fonts/GlacialIndifference-Bold.otf') format("opentype");
 }
 
+html{
+    font-size: 14px;
+}
 html, body
 {
     height: 100%;
 }
 
-.btn
-{
-    font-size: calc(3px + 62%);
-}
 
-.sort-by
+.heading-underline
 {
     border-bottom: 1px solid #949494;
     padding-bottom: 8px;

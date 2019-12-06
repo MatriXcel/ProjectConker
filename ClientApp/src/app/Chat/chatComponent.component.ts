@@ -31,25 +31,34 @@ export class ChatComponent implements OnInit {
 
   messages: IMessage[] = [];
 
+  private thenable: Promise<void>
+
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private http: HttpClient
   ) { }
 
+  private start() {
+    this.thenable = this.hubConnection.start();
+
+    this.thenable
+      .then(() => console.log('Connection started!'))
+      .catch(err => console.log('Error while establishing connection :('));
+
+  }
+
   ngOnInit() {
 
     this.getRandomUser();
 
-    this.hubConnection = new HubConnectionBuilder().withUrl("https://localhost:5001/api/chat", {
+    this.hubConnection = new HubConnectionBuilder().withUrl("/api/chat", {
       skipNegotiation: true,
       transport: HttpTransportType.WebSockets
     }).build();
 
-    this.hubConnection
-      .start()
-      .then(() => console.log('Connection started!'))
-      .catch(err => console.log('Error while establishing connection :('));
+    this.start();
 
     this.hubConnection.on('ReceiveMessage', (author: string, receivedMessage: IMessage) => {
 
@@ -75,20 +84,28 @@ export class ChatComponent implements OnInit {
 
   public sendMessage(): void {
 
-    var today = new Date();
+    console.log("come on");
 
-    this.messageData = {
-      author: this.author,
-      message: this.message,
-      timestamp: ("0" + today.getHours()).toString().slice(-2) + ":" + ("0" + today.getMinutes()).toString().slice(-2),
-      iconLink: this.iconLink
-    };
-    this.hubConnection
-      .invoke('SendToAll', this.author, this.messageData)
-      .catch(err => console.error(err));
+    this.thenable.then(() => {
+      console.log("entered");
 
-    this.message = '';
+      var today = new Date();
+
+      this.messageData = {
+        author: this.author,
+        message: this.message,
+        timestamp: ("0" + today.getHours()).toString().slice(-2) + ":" + ("0" + today.getMinutes()).toString().slice(-2),
+        iconLink: this.iconLink
+      };
+
+      console.log(this.messageData);
+
+      this.hubConnection
+        .invoke('SendToAll', this.author, this.messageData)
+        .catch(err => console.error(err));
+
+      this.message = '';
+
+    }).catch(err => console.log('Error while establishing connection :('));
   }
-
-
 }
