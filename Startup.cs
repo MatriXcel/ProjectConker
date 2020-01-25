@@ -12,7 +12,6 @@ using Microsoft.IdentityModel.Tokens;
 using ProjectConker.Models;
 using ProjectConker.Roadmaps;
 using ProjectConker.Searching;
-
 namespace ProjectConker
 {
     public class Startup
@@ -20,6 +19,7 @@ namespace ProjectConker
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            
         }
 
         public IConfiguration Configuration { get; }
@@ -38,7 +38,7 @@ namespace ProjectConker
                     {
                         ValidateIssuer = false,
                         ValidateAudience = false,
-                        ValidateLifetime = false,
+                        ValidateLifetime = true,
                         ValidateIssuerSigningKey = false,
             
                         ValidIssuer = "http://localhost:5000",

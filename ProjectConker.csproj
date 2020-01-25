@@ -13,11 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-   <PackageReference Include="Lucene.Net.Analysis.Common" Version="4.8.0-beta00005" />
-    <PackageReference Include="Lucene.Net.QueryParser" Version="4.8.0-beta00005" />
-    <PackageReference Include="Lucene.Net" Version="4.8.0-beta00005" />
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+   
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +23,16 @@
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Lucene.Net" Version="4.8.0-beta00005" />
+    <PackageReference Include="Lucene.Net.Analysis.Common" Version="4.8.0-beta00005" />
+    <PackageReference Include="Lucene.Net.QueryParser" Version="4.8.0-beta00005" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.7" />
+    <!-- <FrameworkReference Include="Microsoft.AspNetCore.App" Version="2.2.8" /> -->
+    <!--<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0" />-->
+    <!-- <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" /> -->
+  </ItemGroup>
+  
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">

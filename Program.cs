@@ -18,7 +18,7 @@ namespace ProjectConker
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args).UseUrls("http://localhost:5000", "https://localhost:5001")
+            WebHost.CreateDefaultBuilder(args).UseUrls("http://localhost:5000")
                 .UseStartup<Startup>();
     }
 }

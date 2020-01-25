@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 using Microsoft.EntityFrameworkCore;
 
-
 using Lucene.Net.Index;
 using Lucene.Net.Store;
 using Lucene.Net.Documents;
@@ -33,9 +32,9 @@ namespace ProjectConker.Searching
 
         public SearchEngine(ConkerDbContext dbContext)
         {
-
             indexPath = @"./Searching/SearchIndices";
             _dbContext = dbContext;
+            
             directory = FSDirectory.Open(new DirectoryInfo(indexPath));            
         }
 
@@ -65,7 +64,7 @@ namespace ProjectConker.Searching
 
             string title = roadmap.Title;
             string intro = roadmap.Summary;
-
+            
             var roadmapTags = _dbContext.Entry(roadmap)
                             .Collection(r => r.RoadmapTags)
                             .Query().Select(roadmapTag => roadmapTag.Tag);
@@ -108,6 +107,7 @@ namespace ProjectConker.Searching
             IndexSearcher searcher = new IndexSearcher(reader);
 
             TopDocs topDocs = searcher.Search(query, numberOfDocs);
+        
 
             //reader.close();
             return topDocs.ScoreDocs.Select(result => searcher.Doc(result.Doc));
