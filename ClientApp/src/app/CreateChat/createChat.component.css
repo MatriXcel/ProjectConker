@@ -9,7 +9,7 @@
     margin-bottom: 30px;
 }
 
-.title-box, .description-box, .add-tags-box {
+.title-box, .description-box {
     margin-bottom: 40px;
 }
 
@@ -63,3 +63,29 @@ textarea {
     flex: 1 1 auto;
     width: 1%;
 }
+
+.sign-in-button
+{
+    background: #384E52;
+    /* width: 100%; */
+    margin-top: 30px;
+    float: right;
+    
+}
+
+.sign-in-button h5
+{
+    /* font-weight: bold; */
+    font-size: 1.0em;
+    margin-bottom: 0px;
+}
+
+/* .form-group input
+{
+    border: none;
+    border-bottom: 1px solid #456063;
+    border-radius: 0;
+    font-size: 0.8em;
+    padding-left: 0px;
+    margin-bottom: 38px;
+} */

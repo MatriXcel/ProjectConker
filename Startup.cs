@@ -12,6 +12,8 @@ using Microsoft.IdentityModel.Tokens;
 using ProjectConker.Models;
 using ProjectConker.Roadmaps;
 using ProjectConker.Searching;
+using Repository;
+
 namespace ProjectConker
 {
     public class Startup
@@ -74,6 +76,8 @@ namespace ProjectConker
             services.AddDbContext<ConkerDbContext>(
     options => options.UseQueryTrackingBehavior(QueryTrackingBehavior.TrackAll));
 
+            services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+            
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ConkerDbContext>();
 
             services.AddScoped<SearchEngine>();
