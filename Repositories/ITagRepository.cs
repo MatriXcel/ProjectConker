@@ -2,7 +2,7 @@ using ProjectConker.Models;
 
 namespace Repository
 {
-    public interface IChatRepository : IRepositoryBase<Chat>
+    public interface ITagRepository : IRepositoryBase<Tag>
     {
 
     }

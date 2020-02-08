@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectConker.Models
 {
@@ -7,14 +9,18 @@ namespace ProjectConker.Models
     {
         public Tag()
         {
-            RoadmapTags = new HashSet<RoadmapTag>();
+            ChatTag = new HashSet<ChatTag>();
+            RoadmapTag = new HashSet<RoadmapTag>();
         }
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TagId { get; set; }
         public string TagName { get; set; }
         public string TagDesc { get; set; }
         public int? NumFollowers { get; set; }
 
-        public virtual ICollection<RoadmapTag> RoadmapTags { get; set; }
+        public virtual ICollection<ChatTag> ChatTag { get; set; }
+        public virtual ICollection<RoadmapTag> RoadmapTag { get; set; }
     }
 }

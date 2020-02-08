@@ -7,13 +7,13 @@ namespace ProjectConker.Models
     {
         public Roadmap()
         {
-            RoadmapTags = new HashSet<RoadmapTag>();
+            RoadmapTag = new HashSet<RoadmapTag>();
         }
 
         public int RoadmapId { get; set; }
         public string Title { get; set; }
         public string Summary { get; set; }
 
-        public virtual ICollection<RoadmapTag> RoadmapTags { get; set; }
+        public virtual ICollection<RoadmapTag> RoadmapTag { get; set; }
     }
 }

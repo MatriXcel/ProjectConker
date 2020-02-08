@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using ProjectConker.Models;
 
 namespace Repository
@@ -6,6 +8,8 @@ namespace Repository
     {
         private ConkerDbContext _repoContext;
         private IChatRepository _chat;
+
+        private ITagRepository _tag;
  
         public IChatRepository Chat {
             get {
@@ -18,14 +22,29 @@ namespace Repository
             }
         }
 
+        public ITagRepository Tag {
+            get {
+                if(_tag == null)
+                {
+                    _tag = new TagRepository(_repoContext);
+                }
+ 
+                return _tag;
+            }
+        }
+
         public RepositoryWrapper(ConkerDbContext repositoryContext)
         {
             _repoContext = repositoryContext;
         }
- 
-        public void Save()
+
+        public void AddRange(IEnumerable<object> entities)
         {
-            _repoContext.SaveChanges();
+            _repoContext.AddRange(entities);
+        }
+        public async Task Save()
+        {
+            await _repoContext.SaveChangesAsync();
         }
     }
 }

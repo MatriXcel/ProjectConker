@@ -21,7 +21,7 @@ import { IChatForm } from './chatForm';
       createChatForm = new FormGroup({
           title: new FormControl(''),
           description: new FormControl(''),
-          tags: new FormControl('')
+          tags: new FormControl('A-New-Earth Spirituality')
       });
 
       createChatUrl : string = '/api/chat/create';
@@ -37,6 +37,8 @@ import { IChatForm } from './chatForm';
               description: this.createChatForm.get("description").value,
               tags: this.createChatForm.get("tags").value
           };
+          
+          console.log(this.createChatForm.get("tags").value);
 
           this.formService.SendFormData(this.createChatUrl, formData).subscribe();
       }  

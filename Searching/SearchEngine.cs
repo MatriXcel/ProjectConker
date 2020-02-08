@@ -41,7 +41,7 @@ namespace ProjectConker.Searching
 
         public async Task addDocuments()
         {
-            await _dbContext.Roadmaps.ForEachAsync(roadmap =>
+            await _dbContext.Roadmap.ForEachAsync(roadmap =>
             {
                 addDocument(roadmap);
             });
@@ -66,7 +66,7 @@ namespace ProjectConker.Searching
             string intro = roadmap.Summary;
             
             var roadmapTags = _dbContext.Entry(roadmap)
-                            .Collection(r => r.RoadmapTags)
+                            .Collection(r => r.RoadmapTag)
                             .Query().Select(roadmapTag => roadmapTag.Tag);
 
             var tags = String.Join(" ", roadmapTags);

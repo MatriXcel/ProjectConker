@@ -180,6 +180,43 @@ namespace ProjectConker.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("ProjectConker.Models.Chat", b =>
+                {
+                    b.Property<int>("ChatId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("ChatID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Author")
+                        .HasMaxLength(10);
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(70);
+
+                    b.Property<string>("Title")
+                        .HasMaxLength(20);
+
+                    b.HasKey("ChatId");
+
+                    b.ToTable("Chat");
+                });
+
+            modelBuilder.Entity("ProjectConker.Models.ChatTag", b =>
+                {
+                    b.Property<int>("ChatId")
+                        .HasColumnName("ChatID");
+
+                    b.Property<int>("TagId")
+                        .HasColumnName("TagID");
+
+                    b.HasKey("ChatId", "TagId")
+                        .HasName("PK_ChatTag");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("ChatTag");
+                });
+
             modelBuilder.Entity("ProjectConker.Models.Roadmap", b =>
                 {
                     b.Property<int>("RoadmapId")
@@ -197,7 +234,7 @@ namespace ProjectConker.Migrations
 
                     b.HasKey("RoadmapId");
 
-                    b.ToTable("Roadmaps");
+                    b.ToTable("Roadmap");
                 });
 
             modelBuilder.Entity("ProjectConker.Models.RoadmapTag", b =>
@@ -213,7 +250,7 @@ namespace ProjectConker.Migrations
 
                     b.HasIndex("TagId");
 
-                    b.ToTable("RoadmapTags");
+                    b.ToTable("RoadmapTag");
                 });
 
             modelBuilder.Entity("ProjectConker.Models.Tag", b =>
@@ -233,7 +270,7 @@ namespace ProjectConker.Migrations
 
                     b.HasKey("TagId");
 
-                    b.ToTable("Tags");
+                    b.ToTable("Tag");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -281,15 +318,28 @@ namespace ProjectConker.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("ProjectConker.Models.ChatTag", b =>
+                {
+                    b.HasOne("ProjectConker.Models.Chat", "Chat")
+                        .WithMany("ChatTag")
+                        .HasForeignKey("ChatId")
+                        .HasConstraintName("FK_ChatTag_Chat");
+
+                    b.HasOne("ProjectConker.Models.Tag", "Tag")
+                        .WithMany("ChatTag")
+                        .HasForeignKey("TagId")
+                        .HasConstraintName("FK_ChatTag_Tag");
+                });
+
             modelBuilder.Entity("ProjectConker.Models.RoadmapTag", b =>
                 {
                     b.HasOne("ProjectConker.Models.Roadmap", "Roadmap")
-                        .WithMany("RoadmapTags")
+                        .WithMany("RoadmapTag")
                         .HasForeignKey("RoadmapId")
                         .HasConstraintName("FK__RoadmapTa__Roadm__70DDC3D8");
 
                     b.HasOne("ProjectConker.Models.Tag", "Tag")
-                        .WithMany("RoadmapTags")
+                        .WithMany("RoadmapTag")
                         .HasForeignKey("TagId")
                         .HasConstraintName("FK__RoadmapTa__TagID__71D1E811");
                 });

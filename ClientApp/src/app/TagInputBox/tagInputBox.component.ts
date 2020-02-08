@@ -20,7 +20,7 @@ import { Component, forwardRef, Output, Input } from '@angular/core';
   
        tagList: string[] = ['sql-server', 'c-sharp', 'game-dev'];
        tagInput : FormControl = new FormControl('');
-      
+       
        @Input()
        inputPlaceholder : string;
 
@@ -30,7 +30,8 @@ import { Component, forwardRef, Output, Input } from '@angular/core';
 
        onSpacePressed(event: KeyboardEvent) {
           
-        this.tagList.push(this.tagInput.value);
+        this.tagList.push(this.tagInput.value.trim());
+        console.log(this.tagInput.value.trim());
         this.onChange(this.tagList.join(' '));
         this.tagInput.setValue('');
         
@@ -41,6 +42,7 @@ import { Component, forwardRef, Output, Input } from '@angular/core';
       onBackPressed(event: KeyboardEvent)
       {
            this.tagList.pop();
+           this.onChange(this.tagList.join(' '));
       }
 
 
