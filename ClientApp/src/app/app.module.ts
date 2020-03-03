@@ -27,9 +27,10 @@ import { TagInputBoxComponent } from './TagInputBox/tagInputBox.component';
 import { TagSearchComponent } from './TagSearch/tagSearch.component';
 import { AuthGuard } from './auth.guard';
 import { UserService } from './Services/user.service';
-import { ChatroomsComponent } from './Chatrooms/chatrooms.component';
+import { ChatroomsComponent } from './ChatroomsRelated/Chatrooms/chatrooms.component';
 import { ChatroomsLayoutComponent } from './_Layout/ChatroomsLayout/chatroomsLayout.component';
 import { CreateChatComponent } from './CreateChat/createChat.component';
+import { ChatroomComponent } from './ChatroomsRelated/Chatroom/chatroom.component';
 
 
 
@@ -39,7 +40,7 @@ import { CreateChatComponent } from './CreateChat/createChat.component';
     AppComponent, FeedComponent, SearchbarComponent, SignInComponent,
     TagComponent, TagInputBoxComponent, TagSearchComponent,
     SearchResultComponent, SearchResultsComponent, LoginLayoutComponent, ChatroomsComponent,
-    ChatroomsLayoutComponent, CreateChatComponent
+    ChatroomsLayoutComponent, CreateChatComponent, ChatroomComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

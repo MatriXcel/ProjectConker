@@ -24,7 +24,7 @@ import { IChatForm } from './chatForm';
           tags: new FormControl('A-New-Earth Spirituality')
       });
 
-      createChatUrl : string = '/api/chat/create';
+      createChatUrl : string = '/api/chats/create';
       ngOnInit()
       {
          console.log("initialized");

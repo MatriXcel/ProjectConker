@@ -146,7 +146,6 @@ namespace ProjectConker.Searching
         {
             BooleanQuery query = new BooleanQuery();
 
-
             foreach (var tag in tags)
             {
                 TermQuery tq = new TermQuery(new Term("TokenizedTags", tag));

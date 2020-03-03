@@ -4,20 +4,21 @@
 } 
 
 .overlayed.enabled{ 
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 0;    
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 10;
-    background-color: rgba(0,0,0,0.5); /*dim the background*/
+    background-color: rgba(0,0,0,0.5);
+    bottom: 0;
   }
 
 .page-container{ 
     margin-top:50px;
-    height:100%;
+    /* height:100%; */
     margin-left: var(--side-nav-width);
-    overflow: auto;
+    overflow: hidden;
  }
 
  .page-container.extended

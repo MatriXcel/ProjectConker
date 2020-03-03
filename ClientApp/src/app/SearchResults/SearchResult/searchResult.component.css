@@ -29,8 +29,7 @@ div.search-result:first-of-type
 }
 .author-profile
 {
-   float: left;
-   
+   float: left; 
 }
 
 .author-profile p

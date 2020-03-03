@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -11,15 +12,25 @@ namespace ProjectConker.Controllers
 {
 
 
+    public class ChatAttribs
+    {
+        public string title;
+        public string description;
+        public string authorName;
+        public string[] tags;
+    }
+
     public class ChatForm
     {
         public string title;
         public string description;
+        public string authorName;
         public string tags;
     }
 
+
     [ApiController]
-    [Route("api/chat/")]
+    [Route("api/chats/")]
     public class ChatController : ControllerBase
     {
         IRepositoryWrapper _repoWrapper;
@@ -28,25 +39,53 @@ namespace ProjectConker.Controllers
             _repoWrapper = repoWrapper;
         }
 
+        [HttpGet]
+        [Route("getall")]
+
+        public async Task<IEnumerable<ChatAttribs>> GetAllChats()
+        {
+            var tags = _repoWrapper.Tag.FindAll();
+
+            //one chat can have multiple chatTags
+            var chats = _repoWrapper.Chat.FindAll().Include(c => c.ChatTag).ThenInclude(ct => ct.Tag);
+
+            List<ChatAttribs> chatAttribsList = new List<ChatAttribs>();
+
+            foreach(var chat in chats)
+            {
+                List<String> tagNames = new List<String>();
+
+                foreach(var id in chat.ChatTag.Select(ct => ct.TagId))
+                {
+                    var tagName = tags.SingleOrDefault(t => t.TagId == id).TagName;
+                    Console.WriteLine("tag iiisss " + tagName);
+                    tagNames.Add(tagName);
+                }
+                
+                chatAttribsList.Add(new ChatAttribs{
+                    title = chat.Title,
+                    description = chat.Description,
+                    authorName = chat.Author,
+                    tags = tagNames.ToArray()
+                });
+            }
+            
+            return chatAttribsList;
+        }
+
         [HttpPost]
         [Route("create")]
-        public async Task<IActionResult> CreateChat(ChatForm chatForm)
+        public async Task<IActionResult> CreateChat(ChatForm chatAttribs)
         {
 
             var newChat = new Chat(){ 
-                   Title = chatForm.title, 
-                   Description = chatForm.description,
+                   Title = chatAttribs.title, 
+                   Description = chatAttribs.description,
                    Author = "MatriXcel"
             };
 
-            var tagList = chatForm.tags.Trim().Split(" ").ToList();
-
-            foreach(string str in tagList)
-            {
-                Console.WriteLine("it iiiiisssssssssssssssss " + str);
-            }
+            var tagList = chatAttribs.tags.Split(" ").ToList();
             
-
             var newChatTags = tagList.Select(tag => 
             {
                 var existingTag = _repoWrapper.Tag.FindAll().AsTracking().SingleOrDefault(t => t.TagName == tag);
@@ -61,29 +100,6 @@ namespace ProjectConker.Controllers
 
             _repoWrapper.AddRange(newChatTags);
             await _repoWrapper.Save();
-
-            //_dbContext.AddRange(newChatTags);
-
-            
-
-
-        //     Console.WriteLine(chatForm.tags);
-
-        //     var chat = _repoWrapper.Chat.FindAll().AsTracking()
-        //     .Include(c => c.ChatTag)
-        //     .ThenInclude(ct => ct.Tag).FirstOrDefault(c => c.ChatId == 1);
-
-        //     var chatTagID = chat.ChatTag.ToList()[0].TagId;
-            
-        //     var tag = _repoWrapper.Tag.FindAll().SingleOrDefault(t => t.TagId == chatTagID);
-
-        //    Console.WriteLine("I am right heeeeere " + tag.TagName);
-
-
-
-            //Console.WriteLine(_repoWrapper.Chat.FindAll().ToList()[1].Description);
-            // _repoWrapper.Chat.Update(chat);
-            //_context.SaveChanges();
 
             return Ok();
         }

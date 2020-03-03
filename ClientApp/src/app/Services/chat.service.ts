@@ -18,7 +18,7 @@ const httpOptions = {
 
 export class ChatService
 {
-    submitUrl : string = "/api/chat";
+    submitUrl : string = "/api/chats";
 
     constructor(private http : HttpClient){ }
 
